@@ -43,18 +43,18 @@ do
 		fi
 	done
 
-	#echo "3D volume Alignment [Done]"
+	echo "3D volume Alignment [Done]"
 
 	
 	fslmerge -t $Out_Dir/$each_file/temp/pet_merged $Out_Dir/$each_file/temp/3d_vols_align/vol*
-	#echo "Merged aligned 3D volume [Done]"
+	echo "Merged aligned 3D volume [Done]"
 
 	fslmaths $Out_Dir/$each_file/temp/pet_merged -Tmean $Out_Dir/$each_file/CoRegistered_PET
-	#echo "Co Registered PET Image generated in: "$Out_Dir/$each_file
+	echo "Co Registered PET Image generated in: "$Out_Dir/$each_file
 
 	rm -rf temp
 	rm pet_merged.nii.gz
-	#echo "Deleted temporary files"
+	echo "Deleted temporary files"
 
 	## Step 2 : Bring T1 into MNI Space
 	cd $Out_Dir/$each_file/
@@ -63,7 +63,7 @@ do
  /usr/local/fsl/data/standard/MNI152_T1_2mm_brain -out $Out_Dir/$each_file/T1_in_MNI -omat $Out_Dir/$each_file/T1_in_MNI.mat -bins 256 -cost mutualinfo
 -searchrx -180 180 -searchry -180 180 -searchrz -180 180 -dof 12  -interp trilinear
 
-	#echo "Conversion Complete : T1 image into MNI Space"
+	echo "Conversion Complete : T1 image into MNI Space"
 
 
 	## Step 3 and 4 : Bringing MASK into Subject Space
