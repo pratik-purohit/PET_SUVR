@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Put all 4D-PET files in nii.gz format whose SUVR you want to find-out in one directory(Folder) and give its location below:
-pet_directory=/home/pratik
+pet_directory=/home/username/Path_for_the_Directory_of_PET-Scans
 
 # Put all T1 files (Brain Extracted) in nii.gz format one directory(Folder) and give its location below:
-T1_directory=/home/pratik
+T1_directory=/home/username/Path_for_the_Directory_of_T1w-MRI
 
 # ***Important*** :: "Name of corresponding PET File and T1 File must be same."
 
 
 #Output Directory
-Out_Dir=/home/pratik
+Out_Dir=/home/username/Path-for-the-Output_Directory
 ## Copy "Mask" Folder in the output folder.
 
 start_time=`date +%s`
