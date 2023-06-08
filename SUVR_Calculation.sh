@@ -53,7 +53,7 @@ do
 	echo "Co Registered PET Image generated in: "$Out_Dir/$each_file
 
 	rm -rf temp
-	rm pet_merged.nii.gz
+	rm -f pet_merged.nii.gz
 	echo "Deleted temporary files"
 
 	## Step 2 : Bring T1 into MNI Space
@@ -76,7 +76,7 @@ do
 	## Step 5
 	cd $Out_Dir/$each_file/
 
-	fslmaths $Out_Dir/$each_file/CoRegistered_PET -mul $Out_Dir/$each_file/cerebellum_pons_mask_sub_space_binary $Out_Dir/$each_file/step_5/pet_only_cerebellum_pons
+	fslmaths $Out_Dir/$each_file/CoRegistered_PET -mul $Out_Dir/$each_file/cerebellum_pons_mask_sub_space_binary $Out_Dir/$each_file/pet_only_cerebellum_pons
 	average_activity=`fslstats $Out_Dir/$each_file/pet_only_cerebellum_pons -M`
 	fslmaths $Out_Dir/$each_file/CoRegistered_PET -div $average_activity $Out_Dir/$each_file/normalized_pet_by_cerebellum_and_pons.nii.gz
 
